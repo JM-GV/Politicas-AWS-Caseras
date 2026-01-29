@@ -1,0 +1,38 @@
+// Permisos a nivel Operador para el servicio EC2
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualizarInfraestructuraEC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeTags",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "OperacionesBasicasInstancias",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:RebootInstances"
+            ],
+            "Resource": "arn:aws:ec2:*:*:instance/*"
+        },
+        {
+            "Sid": "AccesoALogsYConsola",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:GetConsoleOutput",
+                "ec2:GetConsoleScreenshot"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
