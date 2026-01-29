@@ -1,0 +1,52 @@
+// Esta política da permisos para administrar el servicio IAM sin poner en riesgo la seguridad
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "GestionUsuariosYGrupos",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateUser",
+                "iam:DeleteUser",
+                "iam:UpdateUser",
+                "iam:ListUsers",
+                "iam:CreateGroup",
+                "iam:DeleteGroup",
+                "iam:UpdateGroup",
+                "iam:ListGroups",
+                "iam:AddUserToGroup",
+                "iam:RemoveUserFromGroup",
+                "iam:GetGroup"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SoporteCredenciales",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateLoginProfile",
+                "iam:UpdateLoginProfile",
+                "iam:DeleteLoginProfile",
+                "iam:ChangePassword",
+                "iam:CreateAccessKey",
+                "iam:UpdateAccessKey",
+                "iam:DeleteAccessKey",
+                "iam:ListAccessKeys"
+            ],
+            "Resource": "arn:aws:iam::*:user/*"
+        },
+        {
+            "Sid": "LecturaDePoliticas",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListPolicies",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListAttachedUserPolicies"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
